@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Beat Thee.wav-be0c391738ed3f85d967bfd1e9f04342.sample"
+
+[deps]
+
+source_file="res://Sounds/Beat Thee.wav"
+dest_files=[ "res://.import/Beat Thee.wav-be0c391738ed3f85d967bfd1e9f04342.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

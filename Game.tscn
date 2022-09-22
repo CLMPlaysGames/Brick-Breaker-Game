@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Background.png" type="Texture" id=2]
+[ext_resource path="res://Paddle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/Coolville.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Level1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/Beat Thee.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Fall.wav" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Backrground" type="Sprite" parent="."]
+position = Vector2( 889.121, 767.596 )
+texture = ExtResource( 2 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PoolVector2Array( -0.493042, 598.299, -0.493042, -2.25484, 802.831, 1.06926, 800.615, 600.515, 849.369, 599.407, 856.017, -29.9557, -24.8698, -29.9557, -24.8698, 599.407 )
+
+[node name="Paddle" parent="." instance=ExtResource( 3 )]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Lives" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -151.0
+margin_top = -28.0
+custom_fonts/font = SubResource( 1 )
+text = "LIVES = 3"
+
+[node name="Score" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -162.607
+margin_top = -71.3318
+margin_right = -0.606689
+margin_bottom = -12.3318
+custom_fonts/font = SubResource( 1 )
+text = "SCORE = 0
+"
+
+[node name="Victory" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -561.414
+margin_top = -368.908
+margin_right = -167.414
+margin_bottom = -247.908
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0705882, 0.647059, 0.121569, 1 )
+text = "'_'   ...  You win i guess
+
+
+"
+
+[node name="Defeat" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -696.465
+margin_top = -377.502
+margin_right = -55.4647
+margin_bottom = -256.502
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.827451, 0.121569, 0.121569, 1 )
+text = "um... your bad.  so back to whats new?
+
+
+"
+
+[node name="Level1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1.22775, 1.22774 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="Fall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
